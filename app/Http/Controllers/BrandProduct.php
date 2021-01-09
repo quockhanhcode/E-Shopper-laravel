@@ -12,12 +12,25 @@ session_start();
 
 class BrandProduct extends Controller
 {
+    //Kiểm tra đăng nhập
+    public function AuthLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }
+        else
+        {
+            return Redirect::to('admin')->send();
+        }
+    }
+
     public function add_brand_product(){
+        $this->AuthLogin();
         return view('admin.add_brand_product');
     }
 
     public function all_brand_product(){
-
+        $this->AuthLogin();
         $all_brand_product = DB::table('tbl_brand')->get();
         $manager_brand_product = view('admin.all_brand_product')->with('all_brand_product',$all_brand_product);
         return view('admin_layout')->with('admin.all_brand_product',$manager_brand_product);
@@ -45,6 +58,7 @@ class BrandProduct extends Controller
     }
 
     public function update_brand_product(Request $request,$brand_product_id){
+        $this->AuthLogin();
         $data = array();
         
         $data['brand_name'] = $request->brand_product_name;
@@ -59,4 +73,21 @@ class BrandProduct extends Controller
         DB::table('tbl_brand')->where('brand_id',$brand_product_id)->delete();
         return Redirect::to('all-brand-product');
     }
+
+    //Tìm kiếm sản phẩm theo thương hiệu
+    public function show_brand_home($brand_id){
+        //Hiện danh mục
+        $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
+        //Hiện thương hiệu
+        $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
+
+        //Lấy ra thương hiệu sản phẩm
+        $brand_by_id = DB::table('tbl_product')
+        ->join('tbl_brand','tbl_product.brand_id','=','tbl_brand.brand_id')
+        ->where('tbl_product.brand_id',$brand_id)->paginate(5);
+        return view('brand.show_brand')
+        ->with('category',$cate_product)
+        ->with('brand',$brand_product)->with('brand_by_id',$brand_by_id);
+    }
+
 }

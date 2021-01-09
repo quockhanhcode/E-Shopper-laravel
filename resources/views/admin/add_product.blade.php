@@ -45,7 +45,7 @@
                         <label for="exampleInput">Danh mục</label>
                             <select name="category_product" class="form-control input-sm m-bot15">
                                 @foreach($category_product as $key => $cate)
-                                <option value="0">{{$cate->category_name}}</option>
+                                <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -54,7 +54,7 @@
                         <label for="exampleInput">Thương Hiệu</label>
                             <select name="brand_product" class="form-control input-sm m-bot15">
                             @foreach($brand_product as $key => $brand)
-                                <option value="0">{{$brand->brand_name}}</option>
+                                <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -10,7 +10,7 @@
             <div class="panel-body">
             @foreach($edit_product as $key=> $edit_value)
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/update-product', $edit_value->product_id)}}" method="post">
+                    <form role="form" action="{{URL::to('/update-product', $edit_value->product_id)}}" method="post" enctype="multipart/form-data">
                     
                     {{ csrf_field() }}
                     <?php
@@ -48,7 +48,11 @@
                         <label for="exampleInput">Danh mục</label>
                             <select name="category_product" class="form-control input-sm m-bot15">
                                 @foreach($category_product as $key => $cate)
-                                <option value="0">{{$cate->category_name}}</option>
+                                @if($cate->category_id==$edit_value->category_id)
+                                <option selected value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                @else
+                                <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -57,7 +61,11 @@
                         <label for="exampleInput">Thương Hiệu</label>
                             <select name="brand_product" class="form-control input-sm m-bot15">
                             @foreach($brand_product as $key => $brand)
-                                <option value="0">{{$brand->brand_name}}</option>
+                            @if($brand->brand_id==$edit_value->brand_id)
+                                <option selected value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                @else
+                                <option value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -66,7 +74,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <input name="product_image" type="file" id="exampleInputFile">
-                            <p class="help-block">Example block-level help text here.</p>
+                            <img src="{{URL::to('public/upload/product/'.$edit_value->product_image)}}" height="100" width="100">
                         </div>
 
                         <button type="submit" name="update_product" class="btn btn-info">Update</button>

@@ -56,8 +56,8 @@
             <td>{{($product->product_desc)}}</td>
             <td> <img src="public/upload/product/{{$product->product_image}}" height="100" width="100"></td>
             <td>{{($product->product_content)}}</td>
-            <td>{{($product->category_product)}}</td>
-            <td>{{($product->brand_product)}}</td>
+            <td>{{($product->category_name)}}</td>
+            <td>{{($product->brand_name)}}</td>
             
             <td><span class="text-ellipsis">
             <?php

@@ -54,3 +54,36 @@ Route::post('/save-product', 'App\Http\Controllers\ProductController@save_produc
 Route::get('/edit-product/{product_id}', 'App\Http\Controllers\ProductController@edit_product');
 Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@update_product');
 Route::get('/delete-product/{product_id}', 'App\Http\Controllers\ProductController@delete_product');
+
+
+//Tìm kiếm sản phẩm theo danh mục
+Route::get('/danh-muc-san-pham/{category_id}', 'App\Http\Controllers\CategoryProduct@show_category_home');
+//Tìm kiếm sản phẩm theo thương hiệu
+Route::get('/thuong-hieu-san-pham/{brnad_id}', 'App\Http\Controllers\BrandProduct@show_brand_home');
+
+//Tìm kiếm
+Route::post('/tim-kiem', 'App\Http\Controllers\HomeController@search');
+
+//Xem chi tiết sản phẩm
+Route::get('/chi-tiet-san-pham/{product_id}', 'App\Http\Controllers\ProductController@detail_product');
+
+//Thêm giỏ hàng
+Route::get('/cart', 'App\Http\Controllers\CartController@cart');
+//Update cart
+Route::post('/update-cart-quantity', 'App\Http\Controllers\CartController@update_cart_quantity');
+
+Route::post('/save-cart', 'App\Http\Controllers\CartController@save_cart');
+Route::get('/show-cart', 'App\Http\Controllers\CartController@show_cart');
+Route::get('/delete-to-cart/{rowId}', 'App\Http\Controllers\CartController@delete_to_cart');
+
+//Checkout
+Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@login_checkout');
+Route::post('/add-customer', 'App\Http\Controllers\CheckoutController@add_customer');
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@checkout');
+Route::post('/save-checkout-customer', 'App\Http\Controllers\CheckoutController@save_checkout_customer');
+Route::get('/logout-checkout', 'App\Http\Controllers\CheckoutController@logout_checkout');
+
+Route::post('/login-customer', 'App\Http\Controllers\CheckoutController@login_customer');
+
+
+
