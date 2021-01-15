@@ -85,5 +85,11 @@ Route::get('/logout-checkout', 'App\Http\Controllers\CheckoutController@logout_c
 
 Route::post('/login-customer', 'App\Http\Controllers\CheckoutController@login_customer');
 
+//Auth roles
+Route::get('/register-auth', 'App\Http\Controllers\AuthController@register_auth');
+//đăng kí
+Route::post('/register', 'App\Http\Controllers\AuthController@register');
+Route::get('/login-auth', 'App\Http\Controllers\AuthController@login_auth');
 
+Route::post('/login', 'App\Http\Controllers\AuthController@login');
 
