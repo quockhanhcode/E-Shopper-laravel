@@ -102,8 +102,8 @@ return [
         'customusers' => [
             'provider' => 'customusers',
             'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 15, //Phiên đăng nhập hết hạn là 15p
+            'expire' => 15,//Phiên đăng nhập hết hạn là 15p
+            'throttle' => 15, 
         ],
     ],
 

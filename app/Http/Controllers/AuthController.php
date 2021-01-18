@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Models\Admin;
 use App\Models\Roles;
 
 use Auth;
-
-use Illuminate\Support\Facades\Redirect;
-
 
 class AuthController extends Controller
 {
@@ -45,8 +43,8 @@ class AuthController extends Controller
         return view('custom_auth.login_auth');
     }
 
-    public function login(Request $request){
-        return $this->validate($request,[
+    public function login(Request $request){ 
+        $this->validate($request,[
             'admin_email'=>'required|email|max:255',
             'admin_password'=>'required|max:255',
         ]);
