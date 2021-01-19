@@ -22,5 +22,9 @@ class Admin extends Authenticatable
     public function getAuthPassword(){
         return $this->admin_password;
     }
+
+    public function hasRole($role){
+        return null !== $this->roles()->where('name',$role)->first();
+    }
     
 }

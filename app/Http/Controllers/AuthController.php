@@ -59,4 +59,5 @@ class AuthController extends Controller
             return Redirect::to('/login-auth');
         }
     }
+    
 }

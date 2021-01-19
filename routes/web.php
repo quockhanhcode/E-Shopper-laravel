@@ -93,3 +93,8 @@ Route::get('/login-auth', 'App\Http\Controllers\AuthController@login_auth');
 
 Route::post('/login', 'App\Http\Controllers\AuthController@login');
 
+//Danh sách người dùng
+Route::get('/all-users', 'App\Http\Controllers\UserController@all_users');
+
+//Cấp quyền cho từng user
+Route::post('/assign-roles', 'App\Http\Controllers\UserController@assign_roles');

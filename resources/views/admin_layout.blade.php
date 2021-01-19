@@ -26,6 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="{{asset('public/backend/css/morris.css')}}" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="{{asset('public/backend/css/monthly.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 <!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="{{asset('public/backend/js/jquery2.0.3.min.js')}}"></script>
@@ -124,6 +125,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-product')}}">Thêm sản phẩm </a></li>
 						<li><a href="{{URL::to('/all-product')}}">Liệt kê sản phẩm</a></li>
+                    </ul>   
+                </li>
+
+				<li class="sub-menu">
+                    <a href="javascript:;">
+					<i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('')}}">Thêm users </a></li>
+						<li><a href="{{URL::to('all-users')}}">Liệt kê User</a></li>
                     </ul>   
                 </li>
 
