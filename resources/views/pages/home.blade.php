@@ -25,8 +25,9 @@
 						</a>
 						
 						@endforeach
-						{{ $all_product->links() }}
+						
 </div>
 					<!--features_items-->
+					{{ $all_product->links('pagination::bootstrap-4') }}
                 
 @endsection

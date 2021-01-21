@@ -19,7 +19,7 @@ class HomeController extends Controller
         //Hiện thương hiệu
         $brand_product = DB::table('tbl_brand')->orderby('brand_id','desc')->get();
         //Hiện sản phẩm
-        $all_product = DB::table('tbl_product')->orderby('product_id','desc')->paginate(3);
+        $all_product = DB::table('tbl_product')->orderby('product_id','desc')->paginate(9);
         return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product);
     }
 
