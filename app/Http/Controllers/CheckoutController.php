@@ -76,7 +76,7 @@ class CheckoutController extends Controller
     public function login_customer(Request $request){
         
         $email = $request->email_account;
-        $password = md5($request->password_account);
+        $password = $request->password_account;
 
         $result = DB::table('tbl_customer')->where('customer_email',$email)->where('customer_password',$password)->first();
 

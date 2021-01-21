@@ -98,3 +98,6 @@ Route::get('/all-users', 'App\Http\Controllers\UserController@all_users');
 
 //Cấp quyền cho từng user
 Route::post('/assign-roles', 'App\Http\Controllers\UserController@assign_roles');
+
+//Send mail
+Route::get('/send-mail', 'App\Http\Controllers\MailController@send_mail');
